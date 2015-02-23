@@ -105,4 +105,9 @@
     }
   }
 
+  Asteroids.Game.prototype.isOutOfBounds = function (pos) {
+    return (pos[0] > this.DIM_X) || (pos[0] < 0) ||
+            (pos[1] > this.DIM_Y) || (pos[1] < 0)
+  }
+
 })();

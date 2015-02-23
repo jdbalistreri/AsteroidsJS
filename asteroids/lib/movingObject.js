@@ -11,6 +11,7 @@
     this.radius = properties["radius"];
     this.color = properties["color"];
     this.game = properties["game"];
+    this.isWrappable = true
   };
 
   MovingObject.prototype.draw = function(ctx) {
@@ -34,14 +35,13 @@
     newPos[0] = this.pos[0] + this.vel[0];
     newPos[1] = this.pos[1] + this.vel[1];
     this.pos = this.game.wrap(newPos);
+
+    if (!this.isWrappable && this.game.isOutOfBounds(newPos)) {
+      this.game.remove(this);
+    }
   }
 
   MovingObject.prototype.isCollidedWith = function(otherObject, game) {
-  //   var distance = Asteroids.Util.distance(this.pos, otherObject.pos);
-  //   var radiiDist = this.radius + otherObject.radius;
-  //   if (radiiDist > distance) {
-  //     game.remove(otherObject);
-  //     game.remove(this);
-  //   }
+    throw new Error("Not implemented") 
   }
 })();

@@ -14,6 +14,8 @@
                             color: "#000000",
                             game: properties["game"]
     })
+
+    this.isWrappable = false;
   }
 
   Asteroids.Util.inherits(Asteroids.Bullet, Asteroids.MovingObject)
