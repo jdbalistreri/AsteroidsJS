@@ -26,6 +26,6 @@
     key('right', function() { gameView.game.ship.turn(.4) })
     key('down', function() { gameView.game.ship.power(-2.5) })
     key('space', function() { gameView.game.ship.fireBullet() })
-  }
+  };
 
 })();

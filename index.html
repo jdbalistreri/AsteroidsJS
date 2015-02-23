@@ -1,6 +1,29 @@
 <html>
   <head>
     <title></title>
+
+    <style>
+      canvas {
+        display: block;
+        position: absolute;
+        top: 0;
+      }
+
+      container {
+        margin: auto;
+        display: block;
+        position: relative;
+        top: 50px;
+        width: 1000px;
+        border: 1px solid black;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+    </style>
   </head>
   <body>
 
@@ -14,12 +37,16 @@
     <script src="./asteroids/lib/game.js"></script>
     <script src="./asteroids/lib/gameView.js"></script>
 
-    <canvas height="800", width="800">
-
+    <container>
+      <img src="http://www.turtlshel.org/wp-content/uploads/2014/09/CarlSagan.jpg" alt="" />
+      <canvas height="640", width="1000"></canvas>
+    </container>
     <script>
       var canvasEl = document.getElementsByTagName("canvas")[0];
       var newAsteroidsGameView = new Asteroids.GameView()
       newAsteroidsGameView.start(canvasEl);
     </script>
+
+
   </body>
 </html>
