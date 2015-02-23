@@ -8,7 +8,7 @@
   Asteroids.Game = function() {
     this.DIM_X = 800;
     this.DIM_Y = 800;
-    this.NUM_ASTEROIDS = 100;
+    this.NUM_ASTEROIDS = 10;
     this.asteroids = [];
     this.addAsteroids();
     this.bullets = [];

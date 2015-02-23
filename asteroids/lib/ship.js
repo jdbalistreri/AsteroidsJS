@@ -67,9 +67,9 @@
   // THIS IS NOT DONE!!
   Asteroids.Ship.prototype.relocate = function () {
     this.speed = 0;
-    this.theta = 0;
+    this.theta = 3 / 2 * Math.PI;
     this.vel = [0,0];
-    // this.pos = random
+    this.pos = this.game.randomPosition();
   }
 
 
