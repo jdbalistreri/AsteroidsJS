@@ -8,7 +8,7 @@
   Asteroids.Game = function() {
     this.DIM_X = 800;
     this.DIM_Y = 800;
-    this.NUM_ASTEROIDS = 100;
+    this.NUM_ASTEROIDS = 10;
     this.asteroids = [];
     this.addAsteroids();
   }
@@ -51,11 +51,9 @@
   }
 
   Asteroids.Game.prototype.checkCollisions = function () {
-    for (var i = 0; i < asteroids.length; i++) {
-      for (var j = i + 1; < asteroids.length - 1; j++) {
-        if (asteroids[i].isCollidedWith(asteroids[j])){
-          alert("COLLISION");
-        }
+    for (var i = 0; i < this.asteroids.length; i++) {
+      for (var j = i + 1; j < this.asteroids.length - 1; j++) {
+      this.asteroids[i].isCollidedWith(this.asteroids[j], this)
       };
     };
   }
@@ -63,6 +61,17 @@
   Asteroids.Game.prototype.step = function () {
     this.moveObjects();
     this.checkCollisions();
+  }
+
+  Asteroids.Game.prototype.remove = function (asteroid) {
+    var updatedObjects = [];
+
+    for (var i = 0; i < this.asteroids.length; i++) {
+      if (this.asteroids[i] !== asteroid) {
+        updatedObjects.push(this.asteroids[i]);
+      }
+    }
+    this.asteroids = updatedObjects;
   }
 
 

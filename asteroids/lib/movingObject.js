@@ -36,10 +36,13 @@
     this.pos = this.game.wrap(newPos);
   }
 
-  MovingObject.isCollidedWith = function(otherObject) {
+  MovingObject.prototype.isCollidedWith = function(otherObject, game) {
     var distance = Asteroids.Util.distance(this.pos, otherObject.pos);
     var radiiDist = this.radius + otherObject.radius;
-    return radiiDist > distance;
+    if (radiiDist > distance) {
+      game.remove(otherObject);
+      game.remove(this);
+    }
   }
 
 })();

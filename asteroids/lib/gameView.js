@@ -13,7 +13,7 @@
     var ctx = canvasEl.getContext("2d");
 
     window.setInterval((function () {
-      this.game.moveObjects.apply(this.game);
+      this.game.step.apply(this.game);
       this.game.draw(ctx);
     }).bind(this), 1000 / 60);
   };
