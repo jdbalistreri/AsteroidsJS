@@ -64,3 +64,10 @@ Function.prototype.inherits = function(parent) {
   Surrogate.prototype = parent.prototype;
   this.prototype = new Surrogate();
 }
+
+//
+// Function.prototype.inherits = function (BaseClass) {
+//   function Surrogate () {};
+//   Surrogate.prototype = BaseClass.prototype;
+//   this.prototype = new Surrogate();
+// };
