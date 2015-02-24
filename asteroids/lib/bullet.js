@@ -27,7 +27,7 @@
     var radiiDist = this.radius + asteroid.radius;
 
     if (radiiDist > distance) {
-      game.remove(asteroid);
+      asteroid.hit();
       game.remove(this);
     }
   }
