@@ -68,9 +68,16 @@
     // ctx.stroke();
   }
 
+  Asteroids.Ship.prototype.tipPos = function () {
+    var tipPos = [this.pos[0], this.pos[1]]
+    var offsetVec = Asteroids.Util.makeVec(this.facing, 25)
+
+    return [tipPos[0] + offsetVec[0], tipPos[1] + offsetVec[1]]
+  }
+
   Asteroids.Ship.prototype.fireBullet = function() {
     var bullet = new Asteroids.Bullet({ direction: this.facing,
-                                        pos: this.pos,
+                                        pos: this.tipPos(),
                                         game: this.game });
     this.game.add(bullet);
     console.log(bullet);
