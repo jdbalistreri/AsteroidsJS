@@ -24,7 +24,7 @@
     var gameView = this;
 
     if (key.isPressed('up'))      { gameView.game.ship.power(.5) }
-    if (key.isPressed('down'))    { gameView.game.ship.power(-.5) }
+    // if (key.isPressed('down'))    { gameView.game.ship.power(-.5) }
     if (key.isPressed('left'))    { gameView.game.ship.turn(-.1) }
     if (key.isPressed('right'))   { gameView.game.ship.turn(.1) }
 
