@@ -10,6 +10,7 @@
     var RADIUS = 50;
     this.speed = 0;
     this.theta = -(Math.PI / 2)
+    this.facing = this.theta
 
     Asteroids.MovingObject.call(this, {pos: properties["pos"],
                             vel: Asteroids.Util.makeVec(this.theta, this.speed),
@@ -22,14 +23,13 @@
   Asteroids.Util.inherits(Asteroids.Ship, Asteroids.MovingObject);
 
   Asteroids.Ship.prototype.turn = function (dTheta) {
-    this.theta = (this.theta + dTheta) % (Math.PI * 2);
-    this.vel = Asteroids.Util.makeVec(this.theta, this.speed);
+    this.facing = (this.facing + dTheta) % (Math.PI * 2);
   }
 
   Asteroids.Ship.prototype.power = function (dSpeed) {
     var newSpeed = (this.speed + dSpeed);
     this.speed = newSpeed > 10 ? 10 : newSpeed;
-    this.vel = Asteroids.Util.makeVec(this.theta, this.speed);
+    this.theta = this.facing
   }
 
   Asteroids.Ship.prototype.draw = function(ctx) {
@@ -37,16 +37,16 @@
     ctx.beginPath();
 
     ctx.moveTo(this.pos[0], this.pos[1])
-    var vec1 = Asteroids.Util.makeVec(this.theta - 2.8, 40)
+    var vec1 = Asteroids.Util.makeVec(this.facing - 2.8, 40)
     ctx.lineTo(vec1[0] + this.pos[0], vec1[1] + this.pos[1])
 
-    var vec2 = Asteroids.Util.makeVec(this.theta + 2.8, 40)
+    var vec2 = Asteroids.Util.makeVec(this.facing + 2.8, 40)
     ctx.lineTo(vec2[0] + this.pos[0], vec2[1] + this.pos[1])
     ctx.fill();
   }
 
   Asteroids.Ship.prototype.fireBullet = function() {
-    var bullet = new Asteroids.Bullet({ direction: this.theta,
+    var bullet = new Asteroids.Bullet({ direction: this.facing,
                                         pos: this.pos,
                                         game: this.game });
     this.game.add(bullet);
@@ -64,12 +64,26 @@
     }
   }
 
-  // THIS IS NOT DONE!!
   Asteroids.Ship.prototype.relocate = function () {
     this.speed = 0;
     this.theta = 3 / 2 * Math.PI;
     this.vel = [0,0];
     this.pos = this.game.randomPosition();
+  }
+
+  Asteroids.Ship.prototype.move = function() {
+    this.vel = Asteroids.Util.makeVec(this.theta, this.speed);
+
+    var newPos = this.pos;
+    newPos[0] = this.pos[0] + this.vel[0];
+    newPos[1] = this.pos[1] + this.vel[1];
+    this.pos = this.game.wrap(newPos);
+
+    if (!this.isWrappable && this.game.isOutOfBounds(newPos)) {
+      this.game.remove(this);
+    }
+
+    this.speed *= .98
   }
 
 
