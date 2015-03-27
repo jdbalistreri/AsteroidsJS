@@ -38,13 +38,22 @@ h2 {
 h3 {
   margin: auto;
   text-align: center;
-  padding: 10px;
+  padding-bottom: 10px;
 }
 
 footer {
   text-align: center;
   font-size: 14px;
   padding: 20px;
+}
+
+.directions {
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+.directions strong {
+  font-weight: bold;
 }
 
 .container {
