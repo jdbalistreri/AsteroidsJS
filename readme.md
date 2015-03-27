@@ -12,4 +12,4 @@ Cosmos! is a remake of the game Asteroids inspired by Carl Sagan's classic Cosmo
 
 
 
-[cosmos]: [http://www.joebalistreri.net/AsteroidsJS/]
+[cosmos]: http://www.joebalistreri.net/AsteroidsJS/
