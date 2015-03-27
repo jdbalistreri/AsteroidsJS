@@ -1,6 +1,6 @@
 
 /*RESET*/
-canvas, img, html, body, h2, h3 {
+canvas, img, html, body, h2, h3, footer {
   margin: 0;
   padding: 0;
   border: 0;
@@ -39,6 +39,12 @@ h3 {
   margin: auto;
   text-align: center;
   padding: 10px;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
 }
 
 .container {

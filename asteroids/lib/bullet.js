@@ -11,7 +11,7 @@
     Asteroids.MovingObject.call(this, {radius: 5,
                             pos: properties["pos"],
                             vel: bulletVelocity,
-                            color: "#000000",
+                            color: "#fff",
                             game: properties["game"]
     })
 
