@@ -29,7 +29,13 @@
       var xPos = velocity * Math.cos(theta);
       var yPos = velocity * Math.sin(theta);
       return [xPos, yPos]
-    }
+    },
+
+    randomColor: function () {
+      var colors = ["#ff00ff", "#00ffff", "#00ff00", "#ffff00", "#ff0000", "#0000ff", "#7920FF", "#FD0987", "#FF3300"];
+      var index = Math.floor((Math.random()*colors.length));
+      return colors[index];
+    },
   }
 
 

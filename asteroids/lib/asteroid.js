@@ -6,7 +6,7 @@
   }
 
   Asteroids.Asteroid = function(properties) {
-    var COLOR = "#338585";
+    var COLOR = Asteroids.Util.randomColor();
     var RADIUS = 50;
 
     Asteroids.MovingObject.call(this, {pos: properties["pos"],
@@ -41,7 +41,6 @@
                                                     vel: newVector,
                                                     game: largerAsteroid.game});
       largerAsteroid.game.add(smallerAsteroid);
-      debugger
     }
   };
 

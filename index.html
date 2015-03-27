@@ -1,29 +1,7 @@
 <html>
   <head>
-    <title></title>
-
-    <style>
-      canvas {
-        display: block;
-        position: absolute;
-        top: 0;
-      }
-
-      container {
-        margin: auto;
-        display: block;
-        position: relative;
-        top: 50px;
-        width: 1000px;
-        border: 1px solid black;
-      }
-
-      img {
-        width: 100%;
-        height: auto;
-      }
-
-    </style>
+    <title>Cosmos!</title>
+    <link rel="stylesheet" href="./css/master.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
 
@@ -37,9 +15,11 @@
     <script src="./asteroids/lib/game.js"></script>
     <script src="./asteroids/lib/gameView.js"></script>
 
-    <container>
-      <img src="http://www.turtlshel.org/wp-content/uploads/2014/09/CarlSagan.jpg" alt="" />
-      <canvas height="635", width="1000"></canvas>
+    <h2>Cosmos!</h2>
+    <h3>... a tribute to Carl Sagan</h3>
+
+    <container class="container">
+      <canvas width="700" height="500"></canvas>
     </container>
     <script>
       var canvasEl = document.getElementsByTagName("canvas")[0];
