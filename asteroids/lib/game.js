@@ -8,7 +8,10 @@
   Asteroids.Game = function() {
     this.DIM_X = 700;
     this.DIM_Y = 500;
-    this.NUM_ASTEROIDS = 3;
+    this.NUM_ASTEROIDS = 2;
+    this.level = 1;
+    this.score = 0;
+    this.lives = 10;
     this.asteroids = [];
     this.addAsteroids();
     this.bullets = [];
@@ -30,12 +33,22 @@
 
   Asteroids.Game.prototype.draw = function (ctx) {
     ctx.clearRect(0, 0, this.DIM_X, this.DIM_Y);
+
     this.allObjects().forEach( function(object) {
       object.draw(ctx);
     })
+    ctx.font = "30px sans-serif";
+    ctx.fillStyle = "#eee";
+    ctx.fillText("Lives: " + this.lives, 10, 30);
+    ctx.fillText("Score: " + this.score, 260, 30);
+    ctx.fillText("Level: " + this.level, 510, 30);
   };
 
   Asteroids.Game.prototype.moveObjects = function () {
+    if (this.lives <= 0) {
+      alert("Congratulations, your score was " + this.score + ". Let's play again.")
+      location.reload();
+    }
     this.allObjects().forEach( function(object) {
       object.move();
     })
@@ -87,7 +100,13 @@
       }
       this.bullets = updatedObjects;
     }
-  }
+
+    if (this.asteroids.length === 0) {
+      this.NUM_ASTEROIDS += 1;
+      this.level += 1;
+      this.addAsteroids();
+    }
+  };
 
   Asteroids.Game.prototype.allObjects = function () {
     return [this.ship].concat(this.asteroids).concat(this.bullets);

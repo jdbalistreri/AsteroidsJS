@@ -28,6 +28,7 @@
 
     if (radiiDist > distance) {
       asteroid.hit();
+      game.score += Math.floor(250/asteroid.radius);
       game.remove(this);
     }
   }

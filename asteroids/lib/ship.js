@@ -91,6 +91,7 @@
 
     if (radiiDist > distance) {
       this.relocate();
+      game.lives -= 1;
     }
   }
 
