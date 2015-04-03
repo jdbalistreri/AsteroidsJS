@@ -47,7 +47,7 @@
   Asteroids.Game.prototype.moveObjects = function () {
     if (this.lives <= 0) {
       alert("Congratulations, your score was " + this.score + ". Let's play again.")
-      location.reload();
+      location.reload(true);
     }
     this.allObjects().forEach( function(object) {
       object.move();
