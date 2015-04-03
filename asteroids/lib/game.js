@@ -8,6 +8,10 @@
   Asteroids.Game = function() {
     this.DIM_X = 700;
     this.DIM_Y = 500;
+    this.reset();
+  }
+
+  Asteroids.Game.prototype.reset = function () {
     this.NUM_ASTEROIDS = 2;
     this.level = 1;
     this.score = 0;
@@ -17,7 +21,7 @@
     this.bullets = [];
     this.ship = new Asteroids.Ship({pos: [this.DIM_X / 2, this.DIM_Y / 2],
                                     game: this})
-  }
+  },
 
   Asteroids.Game.prototype.addAsteroids = function() {
     while (this.asteroids.length < this.NUM_ASTEROIDS) {
@@ -47,7 +51,7 @@
   Asteroids.Game.prototype.moveObjects = function () {
     if (this.lives <= 0) {
       alert("Congratulations, your score was " + this.score + ". Let's play again.")
-      location.reload(true);
+      this.reset();
     }
     this.allObjects().forEach( function(object) {
       object.move();
