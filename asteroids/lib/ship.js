@@ -28,7 +28,7 @@
 
   Asteroids.Ship.prototype.power = function (dSpeed) {
     var newSpeed = (this.speed + dSpeed);
-    this.speed = newSpeed > 10 ? 10 : newSpeed;
+    this.speed = newSpeed > Asteroids.Constants.shipMaxSpeed ? Asteroids.Constants.shipMaxSpeed : newSpeed;
     this.theta = this.facing
   }
 
@@ -80,7 +80,6 @@
                                         pos: this.tipPos(),
                                         game: this.game });
     this.game.add(bullet);
-    console.log(bullet);
   }
 
   Asteroids.Ship.prototype.isCollidedWith = function(asteroid, game) {

@@ -23,18 +23,18 @@
   Asteroids.GameView.prototype.bindKeyHandlers = function() {
     var gameView = this;
 
-    if (key.isPressed('up'))      { gameView.game.ship.power(.5) }
+    if (key.isPressed('up'))      { gameView.game.ship.power(.2) }
     // if (key.isPressed('down'))    { gameView.game.ship.power(-.5) }
     if (key.isPressed('left'))    { gameView.game.ship.turn(-.1) }
     if (key.isPressed('right'))   { gameView.game.ship.turn(.1) }
 
     if (key.isPressed('space')) {
-      // if (this.fireCount > 4) {
+      if (this.fireCount > 1) {
         gameView.game.ship.fireBullet();
-      //   this.fireCount = 0;
-      // } else {
-      //   this.fireCount += 1;
-      // }
+        this.fireCount = 0;
+      } else {
+        this.fireCount += 1;
+      }
     }
   };
 

@@ -7,11 +7,10 @@
 
   Asteroids.Asteroid = function(properties) {
     var COLOR = Asteroids.Util.randomColor();
-    var RADIUS = 50;
 
     Asteroids.MovingObject.call(this, {pos: properties["pos"],
-                            vel: properties["vel"] || Asteroids.Util.randomVec(1),
-                            radius: properties["radius"] || RADIUS,
+                            vel: properties["vel"] || Asteroids.Util.randomVec(Asteroids.Constants.asteroidSpeed),
+                            radius: properties["radius"] || Asteroids.Constants.asteroidRadius,
                             color: COLOR,
                             game: properties["game"]});
 
@@ -22,7 +21,7 @@
 
   Asteroids.Asteroid.prototype.hit = function() {
 
-    if (this.radius > 13) {
+    if (this.radius > Asteroids.Constants.asteroidMinRadius) {
       this.createSmallerAsteroids();
     }
     this.game.remove(this);
@@ -34,7 +33,7 @@
 
     for (var i = 0; i < 4; i++) {
       newTheta = newTheta + (i * Math.PI / 2);
-      var newVector = Asteroids.Util.makeVec(newTheta, 1);
+      var newVector = Asteroids.Util.makeVec(newTheta, Asteroids.Constants.asteroidSpeed);
 
       var smallerAsteroid = new Asteroids.Asteroid({radius: largerAsteroid.radius / 2,
                                                     pos: largerAsteroid.pos,
