@@ -11,6 +11,8 @@
     asteroidSpeed: .6,
 
     shipMaxSpeed: 4,
+    shipAcceleration: .7,
+    shipTurnRadius: .045,
   }
 
 
