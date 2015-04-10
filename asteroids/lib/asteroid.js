@@ -8,11 +8,11 @@
   Asteroids.Asteroid = function(properties) {
     var COLOR = Asteroids.Util.randomColor();
 
-    Asteroids.MovingObject.call(this, {pos: properties["pos"],
-                            vel: properties["vel"] || Asteroids.Util.randomVec(Asteroids.Constants.asteroidSpeed),
-                            radius: properties["radius"] || Asteroids.Constants.asteroidRadius,
+    Asteroids.MovingObject.call(this, {pos: properties.pos,
+                            vel: properties.vel || Asteroids.Util.randomVec(Asteroids.Constants.asteroidSpeed),
+                            radius: properties.radius || Asteroids.Constants.asteroidRadius,
                             color: COLOR,
-                            game: properties["game"]});
+                            game: properties.game});
 
 
   };
@@ -25,10 +25,10 @@
       this.createSmallerAsteroids();
     }
     this.game.remove(this);
-  }
+  };
 
   Asteroids.Asteroid.prototype.createSmallerAsteroids = function() {
-    var largerAsteroid = this
+    var largerAsteroid = this;
     var newTheta = Math.random() * Math.PI / 2;
 
     for (var i = 0; i < 4; i++) {

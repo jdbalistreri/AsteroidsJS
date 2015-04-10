@@ -1,24 +1,22 @@
-"use strict";
-
 (function () {
   if (window.Asteroids === undefined) {
     window.Asteroids = {};
   }
 
   Asteroids.Bullet = function(properties) {
-    var bulletVelocity = Asteroids.Util.makeVec(properties["direction"], 12)
+    var bulletVelocity = Asteroids.Util.makeVec(properties.direction, 12);
 
     Asteroids.MovingObject.call(this, {radius: 5,
-                            pos: properties["pos"],
+                            pos: properties.pos,
                             vel: bulletVelocity,
                             color: "#fff",
-                            game: properties["game"]
-    })
+                            game: properties.game
+    });
 
     this.isWrappable = false;
-  }
+  };
 
-  Asteroids.Util.inherits(Asteroids.Bullet, Asteroids.MovingObject)
+  Asteroids.Util.inherits(Asteroids.Bullet, Asteroids.MovingObject);
 
   Asteroids.Bullet.prototype.isCollidedWith = function(asteroid, game) {
     if (!(asteroid instanceof Asteroids.Asteroid)) { return; }
@@ -31,6 +29,6 @@
       game.score += Math.floor(250/asteroid.radius);
       game.remove(this);
     }
-  }
+  };
 
 })();

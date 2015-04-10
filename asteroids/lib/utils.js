@@ -1,5 +1,3 @@
-"use strict";
-
 (function () {
   if (typeof Asteroids === "undefined") {
     window.Asteroids = {};
@@ -8,7 +6,7 @@
   Asteroids.Util = {
 
     inherits: function (ChildClass, ParentClass) {
-        function Surrogate () {};
+        function Surrogate () {}
         Surrogate.prototype = ParentClass.prototype;
         ChildClass.prototype = new Surrogate();
     },
@@ -21,14 +19,14 @@
     },
 
     distance: function(pos1, pos2) {
-      return Math.sqrt( Math.pow(pos1[0]-pos2[0],2) + Math.pow(pos1[1]-pos2[1],2) )
+      return Math.sqrt( Math.pow(pos1[0]-pos2[0],2) + Math.pow(pos1[1]-pos2[1],2) );
     },
 
     // note: theta is in radians
     makeVec: function(theta, velocity) {
       var xPos = velocity * Math.cos(theta);
       var yPos = velocity * Math.sin(theta);
-      return [xPos, yPos]
+      return [xPos, yPos];
     },
 
     randomColor: function () {
@@ -36,8 +34,6 @@
       var index = Math.floor((Math.random()*colors.length));
       return colors[index];
     },
-  }
-
-
+  };
 
 })();
