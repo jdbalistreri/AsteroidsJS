@@ -18,8 +18,9 @@ html {
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  color: #111;
 }
 
 canvas {
@@ -64,7 +65,7 @@ footer {
   position: relative;
   width: 700px;
   height: 500px;
-  border: 1px solid black;
+  border: 1px solid #111;
 }
 
 img {

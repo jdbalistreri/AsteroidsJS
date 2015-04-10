@@ -39,7 +39,7 @@
     this.allObjects().forEach( function(object) {
       object.draw(ctx);
     });
-    ctx.font = "30px sans-serif";
+    ctx.font = "30px Roboto, sans-serif";
     ctx.fillStyle = "#eee";
     ctx.fillText("Lives: " + this.lives, 10, 30);
     ctx.fillText("Score: " + this.score, 260, 30);
